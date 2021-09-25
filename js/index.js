@@ -32,27 +32,30 @@ function calculateAll() {
 
 function removeProduct(event) {
   const target = event.currentTarget;
-  //console.log('The target in remove is:', target);
   var targetProduct = target.parentNode.parentNode;
   var parentNode = targetProduct.parentNode;
   parentNode.removeChild(targetProduct)
+  calculateAll();
 }
 
-window.addEventListener('load', () => {
-  var removeBtn = document.querySelector('.btn-remove');
-  removeBtn.addEventListener('click', removeProduct);
-});
+const removeBtns = document.querySelectorAll('.btn-remove');
+for (let i = 0; i < removeBtns.length; i ++) {
+  removeBtns[i].addEventListener('click', removeProduct);
+}
 
 // ITERATION 5
 
 function createProduct() {
-  //... your code goes here
+  // fetching the values of inputs (number and text) in variable producName and productPrice
+  const ParentNode = document.querySelectorAll(".create-product input") // html selection ~ array 
+  ParentNode[0].type  = 
+  //  duplicate the last product (product.clonseNode(false))
+  //  filling the product specs with innerhtml
 }
 
-window.addEventListener('load', () => {
-  const calculatePricesBtn = document.getElementById('calculate');
-  calculatePricesBtn.addEventListener('click', calculateAll);
+const createButton = document.querySelector("#create");
+createButton.addEventListener('click', createProduct);
 
-  //... your code goes here
-});
+const calculatePricesBtn = document.getElementById('calculate');
+calculatePricesBtn.addEventListener('click', calculateAll);
 
